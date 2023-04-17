@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import Profile from './Profile/Profile'
+import PropTypes from 'prop-types';
 function App() {
+  function handleName (fullname){
+    alert(fullname)
+  }
+  Profile.defaultProps={
+    fullname:"Assane Ndiaye",
+    profession:"Mécanicien",
+    bio:"21/08/1996"
+  }
+  Profile.propTypes ={
+    fullname: PropTypes.string,
+    profession:PropTypes.string,
+    bio:PropTypes.string
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Profile  bio="23/08/1997" profession="Développeur" handleName={handleName} />
+      
     </div>
   );
 }
